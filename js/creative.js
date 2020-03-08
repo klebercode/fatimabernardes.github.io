@@ -3,35 +3,47 @@
 
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+    if (
+      location.pathname.replace(/^\//, "") ==
+        this.pathname.replace(/^\//, "") &&
+      location.hostname == this.hostname
+    ) {
       var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
       if (target.length) {
-        $('html, body').animate({
-          scrollTop: (target.offset().top - 72)
-        }, 1000, "easeInOutExpo");
+        $("html, body").animate(
+          {
+            scrollTop: target.offset().top - 72
+          },
+          1000,
+          "easeInOutExpo"
+        );
         return false;
       }
     }
   });
 
   // Closes responsive menu when a scroll trigger link is clicked
-  $('.js-scroll-trigger').click(function() {
-    $('.navbar-collapse').collapse('hide');
+  $(".js-scroll-trigger").click(function() {
+    $(".navbar-collapse").collapse("hide");
   });
 
   // Activate scrollspy to add active class to navbar items on scroll
-  $('body').scrollspy({
-    target: '#mainNav',
+  $("body").scrollspy({
+    target: "#mainNav",
     offset: 75
   });
 
   // Collapse Navbar
   var navbarCollapse = function() {
-    if ($("#mainNav").offset().top > 100) {
-      $("#mainNav").addClass("navbar-scrolled");
+    var nav_main = $("#mainNav");
+    var nav_img_default = $(".navbar-brand #logo_default");
+    if (nav_main.offset().top > 100) {
+      nav_main.addClass("navbar-scrolled");
+      nav_img_default.attr("src", "../img/fatima_magalhaes_logo_h.svg");
     } else {
-      $("#mainNav").removeClass("navbar-scrolled");
+      nav_main.removeClass("navbar-scrolled");
+      nav_img_default.attr("src", "../img/fatima_magalhaes_logo_h_i.svg");
     }
   };
   // Collapse now if page is not at top
@@ -40,11 +52,11 @@
   $(window).scroll(navbarCollapse);
 
   // Magnific popup calls
-  $('#portfolio').magnificPopup({
-    delegate: 'a',
-    type: 'image',
-    tLoading: 'Loading image #%curr%...',
-    mainClass: 'mfp-img-mobile',
+  $("#portfolio").magnificPopup({
+    delegate: "a",
+    type: "image",
+    tLoading: "Loading image #%curr%...",
+    mainClass: "mfp-img-mobile",
     gallery: {
       enabled: true,
       navigateByImgClick: true,
@@ -55,4 +67,30 @@
     }
   });
 
+  $(".customer-logos").slick({
+    // infinite: true,
+    // centerMode: true,
+    // centerPadding: "60px",
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    arrows: false,
+    dots: false,
+    pauseOnHover: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: 520,
+        settings: {
+          slidesToShow: 3
+        }
+      }
+    ]
+  });
 })(jQuery); // End of use strict

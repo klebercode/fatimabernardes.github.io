@@ -26,6 +26,15 @@ hr.light {
   font-family: $font-family-sans-serif;
 }
 
+.btn-sm-rd {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10rem;
+}
+
 .btn-xl {
   padding: 1.25rem 2.25rem;
   font-size: 0.85rem;
@@ -38,4 +47,31 @@ hr.light {
 // Page section padding
 .page-section {
   padding: 8rem 0;
+}
+
+.page-section-sm {
+  padding: 2rem 0;
+}
+
+// about
+.header-content {
+  max-width: 500px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  .header-content {
+    margin-bottom: 0;
+    text-align: left;
+  }
+}
+
+// course
+#course .header-content {
+  margin-bottom: 0px;
+}
+
+#course .embed-responsive {
+  margin-bottom: 100px;
 }
