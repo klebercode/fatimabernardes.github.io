@@ -6,6 +6,7 @@ const browsersync = require("browser-sync").create();
 const cleanCSS = require("gulp-clean-css");
 const del = require("del");
 const gulp = require("gulp");
+const runSeq = require("run-sequence");
 const header = require("gulp-header");
 const merge = require("merge-stream");
 const plumber = require("gulp-plumber");
@@ -160,3 +161,11 @@ exports.vendor = vendor;
 exports.build = build;
 exports.watch = watch;
 exports.default = build;
+
+gulp.task("serveprod", function() {
+  connect.server({
+    root: ["./"],
+    port: process.env.PORT || 5000, // localhost:5000
+    livereload: false
+  });
+});
