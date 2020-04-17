@@ -5,7 +5,8 @@
         var videoElement = document.getElementById('videoElement');
         var flvPlayer = flvjs.createPlayer({
             type: 'flv',
-            url: 'ws://localhost:8000/live/connectedu.flv'
+            // url: 'ws://localhost:8000/live/connectedu.flv'
+            url: 'http://3ac984e0.ngrok.io/live/connectedu.flv'
         });
         flvPlayer.attachMediaElement(videoElement);
         flvPlayer.load();
