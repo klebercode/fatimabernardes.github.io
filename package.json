@@ -43,7 +43,7 @@
         "gulp-sass": "4.0.2",
         "gulp-uglify": "3.0.2",
         "gzippo": "^0.2.0",
-        "jquery": "3.4.1",
+        "jquery": "3.5.0",
         "jquery.easing": "^1.4.1",
         "magnific-popup": "^1.1.0",
         "merge-stream": "2.0.0",
